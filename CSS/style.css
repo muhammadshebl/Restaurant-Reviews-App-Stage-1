@@ -1,0 +1,686 @@
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+/*main/mobile styles*/
+/*this is main font for titles*/
+@font-face {
+    font-family: "Quicksand";
+    src: url("./fonts/Quicksand-Regular.ttf");
+}
+/*this is secondary font for subtitles*/
+@font-face {
+    font-family: "sub";
+    src: url("./fonts/Muli-Regular.ttf");
+}
+/*this is secondary font for content*/
+@font-face {
+    font-family: "bodyfont";
+    src: url("./fonts/Raleway-Regular.ttf");
+}
+body{
+    font-family: 'bodyfont', sans-serif;
+    background-color: #eeeeee;
+    font-size: 16px;
+}
+header{
+    position: fixed;
+    width: 100%;
+    top:0;
+    z-index: 1;
+    box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,.26);
+}
+header nav {
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,.26);
+    background-color: #252832;
+    color: #fff;
+    text-align: center;
+}
+#breadcrumb{
+    background-color: #eeeeee;
+    line-height: 3em;
+    padding: 0 1em;
+    list-style: none;
+    transition: background-color 0.4s ease-out;
+}
+#breadcrumb.scroll{
+    background-color: #252832;
+    color: #fff;
+}
+#breadcrumb.scroll li:after{
+    color: #fff;
+}
+#breadcrumb li:after{
+    content: '/';
+    margin: 0 10px;
+    color: #1d1d1d;
+}
+#breadcrumb a{
+    color: #f38200;
+    text-decoration: none;
+}
+#breadcrumb li {
+    display: inline-block;
+}
+
+#breadcrumb li:last-child:after {
+    content: " ";
+}
+h1 {
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: lighter;
+    letter-spacing: 0.25em;
+}
+
+main{
+    margin-top: 4rem;
+}
+
+#map-container {
+    width: 100%;
+    height: 300px;
+}
+#locsMap{
+    width: 100%;
+    height: 100%;
+}
+.mapboxgl-ctrl-bottom-right,
+.mapboxgl-ctrl-bottom-left{
+    display: none;
+}
+.marker {
+     border: none;
+     cursor: pointer;
+    height: 36px;
+    width: 25px;
+    background-image:url("../img/marker.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(217, 19, 19, 0);
+
+ }
+#map-container #map{
+    width:100%;
+    height: 100%;
+}
+#restaurant-img {
+    width: 100%;
+    border-radius: 0;
+}
+.restaurant-name-container{
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 10rem;
+    background: rgba(36, 40, 48, 0.58);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.68) 30%, rgba(255, 255, 255, 0) 80%);
+    padding: 0.8rem;
+    color: #ffffff;
+}
+.restaurant-name-container h1{
+    letter-spacing: 2.5px;
+    font-size: 1em;
+    font-weight: normal;
+}
+#restaurant-address {
+    font-size: 0.9em;
+    color: #ffffffcf;
+    line-height: 2.3em;
+}
+#restaurant-cuisine {
+    height: 2.8rem;
+    display: flex;
+    align-items: center;
+    background-color: rgba(252, 165, 2, 0.75);
+    margin-top: -3px;
+    padding: 0 0.8rem;
+    font-family: 'sub', sans-serif;
+    font-size: 1.3rem;
+    width: 75%;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+.working-hours{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    background-color: rgb(255, 255, 255);
+    width: 80%;
+    margin: 1rem auto;
+    border-radius: 5px;
+    }
+.section-break{
+    height: 0.7px;
+    width: 80%;
+    background-color: #a5a5a56b;
+    margin: 0.8rem 0 0;
+}
+#restaurant-hours {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.01786em;
+    font-style: normal;
+    color: rgba(0, 0, 0, 0.54);
+    width:100%;
+}
+/*reviews styling*/
+#reviews-container {
+    padding: 1.3rem 0.8rem 0.8rem;
+}
+footer {
+    background: #444444;
+    color: #969696;
+    text-align: center;
+    padding: 35px 15px;
+}
+
+footer a{
+    color: #ffa600;
+    text-decoration: none;
+}
+.filter-options {
+    height: 9rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #242831;
+    color:#fff;
+}
+.filter-label{
+    width: calc(100% - 1em);
+    font-family: 'sub' , sans-serif;
+    font-size: 0.91em;
+    font-weight: lighter;
+    letter-spacing: 1.145px;
+}
+
+.filter-options select{
+    width: calc(100% - 1em);
+    height: 1.75rem;
+    font-size: 1rem;
+    font-family: 'bodyfont', sans-serif;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    outline: none;
+}
+.restaurant-Cards-Container {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center; /* space-evenly */
+}
+.restaurant-Card{
+    min-width: 15rem; /* 240px */
+    width: 100%;
+    margin: 0.75rem;
+    display: flex;
+    flex-direction: column; /* mobile first */
+    list-style-type: none;
+    border-radius: 5px;
+    box-shadow:
+            0 3px 1px -2px rgba(0, 0, 0, 0.2),
+            0 2px 2px 0 rgba(0, 0, 0, 0.14),
+            0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    background-color: rgb(255, 255, 255);
+}
+
+/*start of card inner style*/
+.restaurant-img {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    width: 100%;
+}
+h1.restaurant-name {
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 2rem;
+    font-weight: 500;
+    letter-spacing: 0.0125em;
+    padding: 10px 20px 0;
+}
+
+.restaurant-details {
+    margin: 0;
+    font-size: 0.875rem;
+    color: rgba(0, 0, 0, 0.8);
+    line-height: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.00714em;
+    padding: 0 20px;
+}
+
+.restaurant-address {
+    font-size: 0.875rem;
+    color: rgba(0, 0, 0, 0.54);
+    line-height: 3rem;
+    font-weight: 400;
+    letter-spacing: 0.01786em;
+    font-style: normal;
+    padding: 0 20px;
+}
+
+.restaurant-page-link {
+    color: #ffa600;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 20px;
+}
+/*restaurant details page styles*/
+.details-screen-container{
+    background-color: #ffffff;
+    margin-top: 7rem;
+}
+.rating-container i {
+    font-size: 1em;
+    font-style: normal;
+}
+.star-yellow {
+    color: #FDC60A;
+}
+
+.star-white {
+    color: #B5B5C5;
+}
+.break {
+    width: 62%;
+    height: 1px;
+    background-color: #bdbdbd;
+    margin: 20px auto;
+}
+.reviewer-details-container {
+    display: flex;
+    align-items: center;
+}
+
+.user-profile-pic {
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 2em;
+    border: 3px solid #3333;
+    color: #fff;
+    background: #9c9b9b;
+}
+.user-profile-pic[style="background-color:#fff;"],.user-profile-pic[style="background-color:#ffffff;"]{
+    background: #9c9b9b !important;
+}
+.comment {
+    width: calc(100% - 4.1em);
+    margin: 0.8em 0 0.8em 4.1em;
+    font-size: 0.879rem;
+    line-height: 1.4em;
+    color: #757575;
+}
+.comment .review-date {
+    display:none;
+}
+.review-details-container {
+    width: calc(100% - 4.1em);
+    margin-left: 0.6em;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.name-rate-container,.review-date {
+    width: 50%;
+}
+.review-date {
+    text-align: right;
+    color: #bbbbbb;
+    font-size: 0.783rem;
+    line-height: 1.5rem;
+}
+#reviews-list {
+    padding-top: 1.7em;
+    list-style: none;
+}
+#reviews-container .reviews-label {
+    font-family: 'sub', sans-serif;
+    font-size: 1.3rem;
+}
+#reviews-list li:last-child .break {
+    visibility: hidden;
+    margin-bottom: 0;
+}
+.name-rate-container p {
+    font-size: 1.2em;
+    letter-spacing: 0.143em;
+    line-height: 1.5em;
+}
+.rating-container {
+    padding: 0.3em 0 0;
+}
+/*end of card inner style*/
+/*responsive design starts here*/
+/*tablet portrait*/
+@media screen and (min-width: 768px) {
+    .restaurant-Cards-Container {
+        justify-content: end;
+        padding: 2rem 3rem 3rem;
+    }
+    .restaurant-Card{
+         width: calc((100% / 2) - (0.75rem * 2));
+    }
+
+    .restaurant-img-container {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .filter-options {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .filter-label{
+        width:auto;
+        margin: 0 1rem;
+    }
+    .filter-options select {
+        width: calc((100% / 3) - 2em);
+        margin: 0 1rem;
+    }
+    /*details page on desktop*/
+    .details-screen-container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .details-screen-container #map-container {
+        width: 50%;
+        order: 1;
+    }
+
+    #restaurant-container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 50%;
+        order: 0;
+    }
+    #restaurant-img.restaurant-img {
+        flex: 0;
+    }
+    .restaurant-name-container {
+        order: 1;
+        position: relative;
+        width: 100%;
+        background: #fff;
+        height: auto;
+        color: #000000;
+    }
+    #restaurant-address{
+        color:rgba(0, 0, 0, 0.54);
+    }
+
+    #reviews-container {
+        order: 2;
+        flex-flow: row;
+        padding:0;
+
+    }
+.details-screen-container #map-container{
+    height: auto;
+    min-height: 25vh;
+}
+    #restaurant-cuisine {
+        margin: 0;
+        border-radius: 0;
+        width: 100%;
+        padding: 0 1.1rem;
+        order: 2;
+    }
+
+    .working-hours {
+        order: 3;
+        width: 100%;
+        box-shadow: 0 0 0;
+        align-items: start;
+        padding: 1.1rem;
+    }
+
+    #reviews-container .reviews-label {
+        color: #fff;
+        background: #242831;
+        padding: 1rem 1.2rem;
+    }
+    #reviews-list{
+        padding: 1.7em 1.1rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        background-color: #eeeeee;
+    }
+    .reviewContainer {
+        display: flex;
+        flex-wrap: wrap;
+        width: calc((100% / 3) - (1.75rem * 2));
+        background: #fff;
+        margin: 0.75rem;
+        padding: 1rem;
+        border-radius: 5px;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    }
+    .reviewContainer .break{
+        display: none;
+    }
+    .comment {
+        width: auto;
+        margin: auto 0 0;
+    }
+
+    .reviewer-details-container {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .review-details-container {
+        flex-direction: column;
+    }
+    .name-rate-container{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .user-profile-pic{
+        width: 5rem;
+        height: 5rem;
+        margin-bottom: 1rem;
+    }
+    .review-details-container .review-date{
+        display: none;
+    }
+    .comment .review-date {
+        display:block;
+        width: 100%;
+        margin-bottom: 0.2rem;
+    }
+/*especial effects*/
+    /* The Transformation */
+    .details-screen-container .restaurant-img-container:hover img {
+        filter: grayscale(0);
+        transform: scale(1.1);
+    }
+
+    .restaurant-img-container .restaurant-img {
+        transition: transform 1s, filter 1s ease-in-out;
+        filter: blur(2px);
+        transform: scale(1.2);
+    }
+
+    /* The Transformation */
+    .restaurant-img-container:hover .restaurant-img {
+        filter: blur(0);
+        transform: scale(1);
+    }
+
+    .restaurant-page-link{
+        color:#333f65;
+        transition: color 0.4s ease-out;
+        margin-top: auto;
+    }
+    .restaurant-page-link:hover{
+        color: #ffa600;
+    }
+}
+/*tablet landscape& big screens*/
+@media screen and (min-width: 1024px) {
+    .restaurant-Card{
+        width: calc((100% / 3) - (0.75rem * 2));
+    }
+
+}
+/*desktop & bigger screens*/
+@media screen and (min-width: 80rem) {
+    .restaurant-Card{
+        width: calc((100% / 4) - (0.75rem * 2));
+    }
+
+    .details-screen-container .restaurant-img-container img {
+        transition: transform .5s, filter 0.5s ease-in-out;
+        filter: grayscale(0);
+    }
+}
+
+@media (pointer:coarse) {
+    /* The Transformation */
+    .details-screen-container .restaurant-img-container:hover img {
+        filter: grayscale(0);
+        transform: scale(1);
+    }
+
+    .restaurant-img-container .restaurant-img {
+        transition: transform 1s, filter 1s ease-in-out;
+        filter: blur(0);
+        transform: scale(1);
+    }
+
+    /* The Transformation */
+    .restaurant-img-container:hover .restaurant-img {
+        filter: blur(0);
+        transform: scale(1);
+    }
+
+    .restaurant-page-link{
+        color:#333f65;
+        transition: color 0.4s ease-out;
+        margin-top: auto;
+    }
+    .restaurant-page-link:hover{
+        color: #333f65;
+    }
+}
